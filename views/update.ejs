@@ -1,0 +1,157 @@
+<%- include('partials/header') %> <% if(msg!=="" && msg!==undefined ){ %>
+<div class="msg" style="display: flex">
+  <%= msg %>
+  <i class="fas fa-times" id="closeMsg"></i>
+</div>
+<% } %> <% if(typeof user===undefined || user.email==undefined ){ %>
+<h1><%= typeof user %></h1>
+<% }%>
+<section id="register">
+  <div class="register-form">
+    <h1 class="justify-center header-text">Create/Update</h1>
+    <form action="/update" method="POST">
+      <div class="form">
+        <div class="form-1">
+          <input type="hidden" name="id" value="<%= user._id %>" />
+          <input
+            type="text"
+            name="name"
+            placeholder="Enter Full Name"
+            value="<%= user.name %>"
+          />
+          <input
+            type="text"
+            name="email"
+            style="pointer-events: none; color: rgb(193, 190, 190)"
+            readonly
+            placeholder="Enter Email Id"
+            value="<%= user.email %>"
+          />
+          <input
+            type="text"
+            name="education"
+            placeholder="Enter Current Education"
+            list="qualification"
+            value="<%= user.education %>"
+          />
+          <div style="position: relative">
+            <input
+              type="password"
+              name="password"
+              id="password"
+              placeholder="Enter New Password"
+              value="<%= user.password %>"
+            />
+            <em class="fas fa-eye-slash show-pass" style="color: black"></em>
+          </div>
+          <input
+            type="text"
+            name="skills"
+            placeholder="Enter Skills separated by comma "
+            list="qualification"
+            value="<%= user.skills %>"
+          />
+          <textarea placeholder="Enter About.." name="about">
+<%= user.about %></textarea
+          >
+        </div>
+
+        <div class="form-2">
+          <h1 class="justify-center">Project</h1>
+
+          <select
+            id="projectSelect"
+            style="margin-top: 0px"
+            onchange="changeOption"
+          >
+            <option value="">Select To Update</option>
+            <% user.projects.forEach(item=>{ %>
+            <option value="<%=JSON.stringify(item) %>">
+              <%=item.projectName%>
+            </option>
+            <% }) %>
+          </select>
+          <input type="hidden" id="projectId" name="projectId" value="null" />
+          <input
+            type="text"
+            id="projectName"
+            name="projectName"
+            style="margin-top: 20px"
+            placeholder="Enter Project Name"
+            value="<%= user.projectName %>"
+            required
+          />
+
+          <div class="justify-center flex-column">
+            <label>Start Date: </label>
+            <input
+              type="date"
+              placeholder="Enter Start"
+              id="startDate"
+              name="startDate"
+              value="<%= user.startDate %>"
+              required
+            />
+          </div>
+          <div class="justify-center flex-column">
+            <label>End Date: </label>
+            <input
+              type="date"
+              placeholder="Enter End"
+              name="endDate"
+              id="endDate"
+              value="<%= user.endDate %>"
+              required
+            />
+          </div>
+          <textarea
+            type="text"
+            name="projectDesc"
+            id="projectDesc"
+            placeholder="Enter Project Description"
+            required
+            maxlength="400"
+          >
+<%=user.projectDesc %></textarea
+          >
+        </div>
+      </div>
+
+      <div class="btns">
+        <button type="reset" class="btn reset">Reset</button>
+        <button type="submit" class="btn">Submit</button>
+      </div>
+    </form>
+  </div>
+</section>
+<script>
+  const list = document.querySelector("#projectSelect");
+  const projectId = document.querySelector("#projectId");
+  const projectName = document.querySelector("#projectName");
+  const startDate = document.querySelector("#startDate");
+  const endDate = document.querySelector("#endDate");
+  const projectDesc = document.querySelector("#projectDesc");
+  list.addEventListener("change", (e) => {
+    const project = JSON.parse(e.target.value.trim());
+    projectId.value = project._id;
+    projectName.value = project.projectName;
+    startDate.value = project.startDate;
+    endDate.value = project.endDate;
+    projectDesc.value = project.projectDesc;
+  });
+
+  const passEye = document.querySelector(".show-pass");
+  const passwordField = document.querySelector("#password");
+  passEye.addEventListener("click", () => {
+    if (passwordField.type == "password") {
+      passEye.classList.remove("fa-eye-slash");
+      passEye.classList.add("fa-eye");
+      passwordField.type = "text";
+    } else {
+      passEye.classList.add("fa-eye-slash");
+      passEye.classList.remove("fa-eye");
+      passwordField.type = "password";
+    }
+  });
+</script>
+<%- include('partials/footer') %>

@@ -1,0 +1,36 @@
+<%- include('partials/header') %> <% if(msg!=="" && msg!==undefined ){ %>
+<div class="msg" style="display: flex">
+  <%= msg %>
+  <i class="fas fa-times" id="closeMsg"></i>
+</div>
+<% } %>
+
+<section id="login">
+  <div class="login-form">
+    <h1 class="justify-center header-text">Login</h1>
+    <form action="/login" method="POST">
+      <input type="text" name="uname" placeholder="Enter User Name" />
+      <div style="position: relative">
+        <input type="password" id="password" name="password" placeholder="Enter Password" />
+        <em class="fas fa-eye-slash show-pass" style="color: black"></em>
+      </div>
+      <button type="submit" class="btn corner">Submit</button>
+    </form>
+  </div>
+</section>
+<script>
+  const passEye = document.querySelector(".show-pass");
+  const passwordField = document.querySelector("#password");
+  passEye.addEventListener("click", () => {
+    if (passwordField.type == "password") {
+      passEye.classList.remove("fa-eye-slash");
+      passEye.classList.add("fa-eye");
+      passwordField.type = "text";
+    } else {
+      passEye.classList.add("fa-eye-slash");
+      passEye.classList.remove("fa-eye");
+      passwordField.type = "password";
+    }
+  });
+</script>
+<%- include('partials/footer') %>

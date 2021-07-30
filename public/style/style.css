@@ -1,0 +1,412 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: #5cbcf8;
+  width: 100%;
+  height: 100vh;
+  color: white;
+}
+.display-3 {
+  font-size: 7.5vw;
+}
+section {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+
+.center {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+nav {
+  background-color: #1da1f2;
+  z-index: 1111;
+}
+
+nav li {
+  margin-right: 20px;
+}
+nav a {
+  color: white !important;
+}
+nav a:hover {
+  color: rgb(213, 206, 206) !important;
+}
+
+.loginBtn {
+  background-color: #5cbcf8;
+  padding: 0px 10px;
+  border-radius: 5px;
+}
+
+/*carsouel of project */
+
+.caraousel-parent {
+  width: 500px;
+}
+
+.carousel {
+  overflow: hidden;
+  height: 90%;
+  width: 100%;
+  z-index: 2;
+  transition: transform 0.5s;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.text-small {
+  font-size: 20px;
+}
+
+.justify-center {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.justify-between {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+}
+
+.btn {
+  width: 150px;
+  height: 50px;
+  background-color: #1093e6;
+  font-size: 18px;
+  color: white;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+}
+
+.msg {
+  width: 350px;
+  height: 50px;
+  background-color: #0a88d6;
+  color: white;
+  font-size: 20px;
+  display: none;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 0 30px;
+  z-index: 1111;
+  box-shadow: 0px 0px 30px rgba(255, 255, 255, 0.231);
+}
+.msg #closeMsg {
+  cursor: pointer;
+}
+
+.corner {
+  position: absolute;
+  right: 4%;
+  bottom: 4%;
+}
+/* Home Project */
+
+#home {
+  width: 100%;
+  height: 100%;
+}
+#home header {
+  height: 10vh;
+}
+
+#home main {
+  height: 90%;
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  transform: translate(-50%, -50%);
+}
+
+svg {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+/* Projects section */
+
+#project {
+  width: 100%;
+  height: 100%;
+  padding-top: 30px;
+}
+
+#project .cards {
+  width: 100%;
+  height: 80%;
+  padding: 18px 50px;
+}
+
+#project .card {
+  max-width: 380px;
+  width: 100%;
+  height: 480px;
+  padding: 10px 0;
+  background: linear-gradient(180deg, #1da1f2 0%, #1093e6 100%);
+}
+
+/* Skills Page */
+
+#skill {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+#skill .cards {
+  width: 100%;
+  height: 80%;
+  padding: 10px 40px;
+  flex-wrap: wrap;
+  overflow-y: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#skill .card {
+  width: 240px;
+  height: 120px;
+  margin: 10px 20px;
+  background: linear-gradient(180deg, #1da1f2 0%, #1093e6 100%);
+}
+#skill .card h1 {
+  font-size: 25px;
+}
+/* About Section */
+
+#about {
+  width: 100%;
+  height: auto;
+  background-color: white;
+  color: black;
+  padding: 30px 0;
+  box-shadow: inset 0px 0px 30px rgba(0, 0, 0, 0.177);
+}
+
+/* Login Form */
+#login {
+  width: 100%;
+  height: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-form {
+  width: 360px;
+  height: 350px;
+  background-color: white;
+  position: relative;
+  border-radius: 5px;
+}
+
+.header-text {
+  color: white;
+  background-color: #1093e6;
+  margin: 0;
+  padding: 10px 0;
+  font-size: 30px;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+}
+
+form {
+  width: 100%;
+  display: flex;
+  padding: 10px 20px;
+  flex-direction: column;
+}
+
+form input,
+select,
+textarea {
+  background: none;
+  border: none;
+  outline: none;
+  border-bottom: 2.3px solid black;
+  font-size: 18px;
+  padding: 3px;
+  width: 100%;
+  margin-top: 30px;
+}
+
+textarea {
+  padding-bottom: 15px;
+}
+
+form input[type="date"] {
+  margin-top: 0;
+}
+
+#register {
+  width: 100%;
+  height: 150vh;
+  /* 100vh */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.register-form {
+  width: 370px;
+  /* 800px */
+  height: auto;
+  background-color: white;
+  position: relative;
+  border-radius: 5px;
+}
+
+.register-form .form {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  width: 100%;
+}
+.form-1 {
+  width: 100%;
+  margin-right: 40px;
+}
+
+.form-2 {
+  width: 100%;
+  background: #1093e6;
+  padding: 0px 30px 30px;
+  margin-top: 20px;
+  border-radius: 10px;
+}
+.form-2 input,
+select,
+.form-2 textarea {
+  color: white;
+  border-color: white;
+}
+.form-2 textarea {
+  margin: 0;
+}
+
+.btns {
+  margin-top: 20px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.reset {
+  background-color: #d01941;
+  margin-right: 75px;
+}
+select {
+  width: 100%;
+  background: #1093e6;
+}
+option {
+  background-color: none;
+}
+
+.show-pass {
+  position: absolute;
+  right: 2%;
+  top: 50%;
+}
+
+em {
+  cursor: pointer;
+}
+
+.footer {
+  width: 100%;
+  height: 10vh;
+  background-color: white;
+}
+
+.footer p {
+  margin: 0;
+  font-size: 0.8em;
+}
+
+@media screen and (min-width: 900px) {
+  #register {
+    height: 100vh;
+  }
+
+  .register-form {
+    width: 800px;
+  }
+  .register-form .form {
+    flex-direction: row;
+  }
+
+  .footer {
+    font-size: 20px;
+  }
+
+  #skill .cards {
+    justify-content: space-between;
+    align-items: baseline;
+  }
+
+  .msg {
+    width: 50%;
+  }
+  .display-3 {
+    font-size: 4.5rem;
+  }
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #0a88d6;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #1093e6;
+}
+
+.text-education {
+  animation: education 2s ease infinite;
+}
+
+@keyframes education {
+  0%,100%{
+    opacity: 0.5;
+  }
+  50% {
+    opacity:1;
+  }
+}
